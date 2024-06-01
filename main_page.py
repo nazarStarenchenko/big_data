@@ -3,9 +3,15 @@ from PIL import Image
 import numpy as np
 from io import BytesIO
 import base64
+from PIL import Image
+from numpy import asarray
 
 def detect_ships(image):
-    return np.array(image.convert('L'))
+    # load the image
+    image = Image.open('output.png')
+    # convert image to numpy array
+    data = asarray(image)
+    return data
 
 def get_image_download_link(img, text):
     buffered = BytesIO()
